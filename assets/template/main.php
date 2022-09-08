@@ -9,7 +9,7 @@ if(isset($_POST['kirim'])){
     } elseif($nilai < 75 && $nilai >= 0) {
         $hasilK = "Tidak kompeten";
     } elseif($nilai > 100){
-        $hasilK = "Nilai tidak boleh lebih dari 100";
+        $hasilK = '<span class="text-light">Nilai tidak boleh lebih dari 100</span>';
     } else{
         $hasilK = "Nilai tidak boleh dibawah 0";
     }
@@ -17,7 +17,7 @@ if(isset($_POST['kirim'])){
 
 function bgKompeten(){
     global $nilai;
-    if($nilai >= 75){
+    if($nilai >= 75 && $nilai <= 100){
         echo "bg-primary";
     }else{
         echo "bg-danger";
@@ -26,7 +26,7 @@ function bgKompeten(){
 
 function emoticon(){
     global $nilai;
-    if($nilai >= 75){
+    if($nilai >= 75 && $nilai <= 100){
         echo "smile.svg";
     }else{
         echo "unsmile.svg";
@@ -43,7 +43,7 @@ function emoticon(){
             <span><img src="assets/svg/<?= isset($_POST['kirim']) ? emoticon() : "smile.svg" ;?>" width="50px" alt=""></span>
             <h2 class="text-light mb-4 mt-4"><?= isset($_POST['kirim']) ? $hasilK : "Kompeten || Tidak Kompeten" ;?></h2>
             <!-- <hr style="height: 10px;border:none;" class="bg-dark m-0"> -->
-            <div class="namaSiswa btn btn-secondary">
+            <div class="namaSiswa btn btn-secondary w-75">
                 <h5 class="fw-bold text-light"><?= isset($_POST['kirim']) ? $nama : "Nama Kamu" ;?></h5>
             </div>
             <!-- <hr style="height: 10px;border:none;" class="bg-dark m-0"> -->
