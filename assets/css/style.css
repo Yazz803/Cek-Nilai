@@ -1,0 +1,19 @@
+.kiri{
+    width: 50%;
+}
+
+.kanan{
+    width: 50%;
+}
+
+@media (max-width: 1000px){
+    .bagian-utama {
+        flex-wrap: wrap;
+    }
+    .kiri {
+        width: 100%;
+    }
+    .kanan{
+        width: 100%;
+    }
+}
